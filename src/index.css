@@ -57,6 +57,22 @@
   border-width: thin;
   border-color: #00000029;
 }
+.active-categoryElements {
+  margin-top: 10px;
+  width: 350px;
+  height: 42px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  border: solid;
+  border-radius: 10px;
+  border-width: thin;
+  border: solid;
+  border-radius: 10px;
+  border-width: thin;
+  border-color: #00000029;
+}
 .item {
   display: flex;
   item-align: center;

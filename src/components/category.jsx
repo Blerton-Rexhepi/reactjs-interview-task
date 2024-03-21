@@ -6,6 +6,7 @@ export default function Category() {
   const [data, setData] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showDiv, setShowDiv] = useState(true);
+  const [active, setActive] = useState(0);
   useEffect(() => {
     // Fetch the data when the component mounts
     axios
@@ -20,7 +21,8 @@ export default function Category() {
 
   const sendData = (category) => {
     setSelectedCategory(category);
-    console.log(category);
+    console.log("Category Id" + category.categoryId);
+    setActive(category.categoryId);
     setShowDiv(false);
   };
   return (
@@ -38,20 +40,32 @@ export default function Category() {
             {data.categories.map((category) => (
               <div
                 onClick={() => sendData(category)}
-                className="categoryElements"
+                className={`${
+                  category.categoryId === active
+                    ? "active-categoryElements "
+                    : "categoryElements "
+                }:`}
               >
                 <div className="item">
-                  <img alt="test" src="Vector.svg" className="folderImage" />
+                  {category.categoryId === active ? (
+                    <img src="Vector (1).svg" className="folderImage" alt="" />
+                  ) : (
+                    <img alt="test" src="Vector.svg" className="folderImage" />
+                  )}
 
                   <div key={category.categoryId}>
                     <p>{category.name}</p>
                   </div>
                 </div>
-                <img
-                  src="Path 7464.svg"
-                  alt="Arrow Icon"
-                  className="arrowDown"
-                />
+                {category.categoryId === active ? (
+                  <img src="Path 7453 (1).svg" alt="." className="arrowDown" />
+                ) : (
+                  <img
+                    src="Path 7464.svg"
+                    alt="Arrow Icon"
+                    className="arrowDown"
+                  />
+                )}
               </div>
             ))}
           </div>
