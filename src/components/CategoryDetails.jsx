@@ -6,7 +6,6 @@ const CategoryDetails = ({ category }) => {
   const handleElementClick = (elementData) => {
     setSelectedElement(elementData);
     setStyle(false);
-    // console.log(elementData);
     setOpen(true);
   };
   const [open, setOpen] = useState(true);
